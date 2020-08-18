@@ -4,9 +4,9 @@ import LogoImage from "./images/mainlogo.png";
 const LoginPage = () => {
   return (
     <div>
-      <img src={LogoImage} width='12' height='12'/>
+      <img src={LogoImage} width='300' height='300'/>
     </div>
   );
 };
 
-export { LoginPage };
+export default LoginPage;

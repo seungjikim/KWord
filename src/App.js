@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import { LoginPage } from './LoginPage';
+import LoginPage from './LoginPage';
 import { firestore } from "./firebase";
 
 const App = () => {
@@ -17,7 +17,7 @@ const App = () => {
   return (
     <div>
       <p>React here!</p>
-      { LoginPage }
+      <LoginPage/>
     </div>
   );
 };
