@@ -1,5 +1,6 @@
-import firebase, { auth } from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/auth';
 
 const firebaseConfig = {
     apiKey: "AIzaSyDlmIN3RU_j61sgacs_1_sYaQ7THnaJjOY",
@@ -15,5 +16,11 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 const firestore = new firebase.firestore();
+export default firestore;
+export const auth = firebase.auth();
 
-export { firestore };
+const provider = new firebase.auth.GoogleAuthProvider(); //구글 팝업을 띄우자.
+provider.setCustomParameters({prompt: 'select_account'});
+export const signInWithGoogle = () => auth.signInWithPopup(provider); //auth를 할건데 위에 정의한 provider로 할거야.
+
+//export default firebase;
