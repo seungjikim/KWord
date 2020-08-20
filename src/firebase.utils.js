@@ -18,6 +18,7 @@ firebase.initializeApp(firebaseConfig);
 const firestore = new firebase.firestore();
 export default firestore;
 export const auth = firebase.auth();
+auth.setPersistence(firebase.auth.Auth.Persistence.NONE);
 
 const provider = new firebase.auth.GoogleAuthProvider(); //구글 팝업을 띄우자.
 provider.setCustomParameters({ prompt: "select_account" });
@@ -27,8 +28,7 @@ export const signInWithGoogle = () =>
     .then(function (result) { // 로그인 성공시... 여기부터 다음페이지로 넘기면 됌
       var token = result.credential.accessToken;
       var user = result.user;
-      alert('log in completed');
-      console.log(user);
+      return user, token;
     })
     .catch(function (error) { // 로그인 실패... 여긴 다시 기존 페이지로 리셋
       var errorcode = error.code;
