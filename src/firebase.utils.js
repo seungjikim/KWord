@@ -22,6 +22,7 @@ auth.setPersistence(firebase.auth.Auth.Persistence.NONE);
 
 const provider = new firebase.auth.GoogleAuthProvider(); //구글 팝업을 띄우자.
 provider.setCustomParameters({ prompt: "select_account" });
+
 export const signInWithGoogle = () =>
   auth
     .signInWithPopup(provider)
