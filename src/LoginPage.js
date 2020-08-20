@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import LogoImage from "./images/mainlogo.png";
 import { signInWithGoogle } from "./firebase.utils";
 

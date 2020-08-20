@@ -28,6 +28,7 @@ export const signInWithGoogle = () =>
       var token = result.credential.accessToken;
       var user = result.user;
       alert('log in completed');
+      console.log(user);
     })
     .catch(function (error) { // 로그인 실패... 여긴 다시 기존 페이지로 리셋
       var errorcode = error.code;

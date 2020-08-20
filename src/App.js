@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom";
-import LoginPage from './LoginPage';
-import firestore from './firebase.utils';
-import firebase from 'firebase/app';
+import React, { Component, useEffect } from "react";
+import LoginPage from "./LoginPage";
+import firestore from "./firebase.utils";
+import MainPage from "./MainPage";
+import { Route } from "react-router-dom";
 
 const App = () => {
   useEffect(() => {
@@ -17,11 +17,10 @@ const App = () => {
   });
   return (
     <div>
-      <LoginPage/>
+        <Route exact path="/" component={LoginPage}/>
+        <Route path="/main" component={MainPage}/>
     </div>
   );
 };
 
 export default App;
-
-ReactDOM.render(<App />, document.getElementById("root"));
