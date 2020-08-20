@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Redirect } from 'react-router-dom'
 import LogoImage from "./images/mainlogo.png";
 import { auth } from './firebase.utils';
 
-const MainPage = () => {
+const MainPage = ({ history }) => {
     return (
         <div>
             <div className="Header">
@@ -26,10 +27,13 @@ const MainPage = () => {
             <div className="Footer">
                 <button className="GoToUpload" onClick={(e) => {e.preventDefault()}}>go to upload</button>
             </div>
-            <button className="Logout" onClick={() => auth.signOut().then(function(){
+            <button className="Logout" onClick={() => auth.signOut()
+            .then(function(){
+                history.push("/")
                 console.log('log out success');
-            }).catch(function(error) {
-                console.log('log out failed');
+            })
+            .catch(function(error) {
+                console.log(error, 'log out failed');
             })}>logout</button>
         </div>
     )
