@@ -1,5 +1,6 @@
 import React from 'react'
 import LogoImage from "./images/mainlogo.png";
+import { auth } from './firebase.utils';
 
 const MainPage = () => {
     return (
@@ -25,6 +26,11 @@ const MainPage = () => {
             <div className="Footer">
                 <button className="GoToUpload" onClick={(e) => {e.preventDefault()}}>go to upload</button>
             </div>
+            <button className="Logout" onClick={() => auth.signOut().then(function(){
+                console.log('log out success');
+            }).catch(function(error) {
+                console.log('log out failed');
+            })}>logout</button>
         </div>
     )
 }
