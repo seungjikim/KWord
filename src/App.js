@@ -1,13 +1,10 @@
-import React, { useState, useEffect, useHistory } from "react";
+import React, { useEffect } from "react";
 import LoginPage from "./LoginPage";
 import MainPage from "./MainPage";
 //import firestore from "./firebase.utils";
 import { Route, withRouter } from "react-router-dom";
-import { auth } from "./firebase.utils";
 
 const App = () => {
-  const [pagehistory, setPagehistory] = useState(history);
-
   useEffect(() => {
     /*
     firestore
@@ -20,24 +17,12 @@ const App = () => {
       });
     */
   });
-  if (
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        history.pushState("", "", "/main");
-        console.log(location.pathname);
-      }
-      else {
-        history.pushState("", "", "/");
-        console.log(location.pathname);
-      }
-    })
-  )
-    return (
-      <div>
-        <Route exact path="/" component={LoginPage} />
-        <Route path="/main" component={MainPage} />
-      </div>
-    );
+  return (
+    <div>
+      <Route exact path="/" render={() => <LoginPage />}></Route>
+      <Route path="/main" render={() => <MainPage />}></Route>
+    </div>
+  );
 };
 
 export default withRouter(App);
