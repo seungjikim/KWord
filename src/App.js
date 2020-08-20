@@ -1,11 +1,12 @@
-import React, { Component, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import LoginPage from "./LoginPage";
-import firestore from "./firebase.utils";
 import MainPage from "./MainPage";
+//import firestore from "./firebase.utils";
 import { Route } from "react-router-dom";
 
 const App = () => {
   useEffect(() => {
+    /*
     firestore
       .collection("Users")
       .get()
@@ -14,11 +15,12 @@ const App = () => {
           console.log(doc.data());
         });
       });
+    */
   });
   return (
     <div>
-        <Route exact path="/" component={LoginPage}/>
-        <Route path="/main" component={MainPage}/>
+      <Route exact path="/" component={LoginPage} />
+      <Route path="/main" component={MainPage} />
     </div>
   );
 };
