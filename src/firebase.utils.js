@@ -19,7 +19,6 @@ const firestore = new firebase.firestore();
 export default firestore;
 export const auth = firebase.auth();
 
-
 const provider = new firebase.auth.GoogleAuthProvider(); //구글 팝업을 띄우자.
 provider.setCustomParameters({ prompt: "select_account" });
 
@@ -35,5 +34,6 @@ export const signInWithGoogle = () =>
       var errorMessage = error.message;
       var email = error.email;
       var credential = error.credential;
+      console.log(error)
       alert('log in failed');
     }); //auth를 할건데 위에 정의한 provider로 할거야.
