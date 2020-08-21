@@ -34,6 +34,5 @@ export const signInWithGoogle = () =>
       var errorMessage = error.message;
       var email = error.email;
       var credential = error.credential;
-      console.log(error)
       alert('log in failed');
     }); //auth를 할건데 위에 정의한 provider로 할거야.
