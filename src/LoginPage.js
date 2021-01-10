@@ -3,7 +3,6 @@ import { Route, Link, Redirect } from "react-router-dom";
 import { Button, useForkRef } from '@material-ui/core'
 import LogoImage from "./images/mainlogo.png";
 import { signInWithGoogle, auth } from "./firebase.utils";
-import MainPage from './MainPage';
 
 export default function LoginPage({ history }) {
 

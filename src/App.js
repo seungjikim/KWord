@@ -4,6 +4,7 @@ import MainPage from "./MainPage";
 //import firestore from "./firebase.utils";
 import { Route, withRouter, Redirect} from "react-router-dom";
 import { auth } from "./firebase.utils";
+import SideBar from "./SideBar";
 
 const App = () => {
 
